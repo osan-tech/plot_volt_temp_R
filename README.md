@@ -1,5 +1,5 @@
 # plot_volt_temp_R
-Plot voltage-temperature from an [Osan Pathfinder](https://www.osan.tech) SQLite database file
+Plot **voltage-temperature** from an [Osan Pathfinder](https://www.osan.tech) SQLite database file
 
 ![volt-temp.png](volt-temp.png)
 
