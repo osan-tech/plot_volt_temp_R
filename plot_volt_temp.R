@@ -4,7 +4,7 @@
 library(DBI)
 library("RSQLite")
 
-con <- dbConnect(SQLite(), "udtja_0006_20220315_0811.sqlite3")
+con <- dbConnect(SQLite(), "billingsfors_0006_20220403_0915.sqlite3")
 
 as.data.frame(dbListTables(con)) # List all tables in SQLite database
 
@@ -13,8 +13,8 @@ volt <- dbReadTable(con, "ts_voltage")
 volt$event_time
 volt$voltage
 
-startDate <- as.POSIXct("2022-03-10 00:00:00")
-endDate <- as.POSIXct("2022-03-16 00:00:00")
+startDate <- as.POSIXct("2022-03-31 00:00:00")
+endDate <- as.POSIXct("2022-04-04 00:00:00")
 
 tm <- as.POSIXct(volt$event_time)
 plot(tm, volt$voltage, ylim=c(0.7,1.4), xlim=c(startDate, endDate), type="l", 
@@ -30,7 +30,7 @@ plot(tm2, temp$temperature - 0.1, ylim=c(-20,60), xlim=c(startDate, endDate), ty
      col="red", xlab="time", ylab="Voltage", axes=FALSE)
 
 ## Add Legend
-legend("topright",legend=c("Voltage","Temperature"),
+legend("bottomleft",legend=c("Voltage","Temperature"),
        text.col=c("blue","red"),pch=c(16,15),col=c("blue","red"))
 
 ## Draw temperature axis
